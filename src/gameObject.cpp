@@ -18,16 +18,10 @@
 #include <cstdio>
 #endif
 
-#ifndef LIST_H
-#define LIST_H
-#include <list>
-#endif
-
 /// <summary>
 /// gameObject constructor
 /// </summary>
 gameObject::gameObject() {
-	this->commponentList = new list<commponent>();
 	printf("gameObject constructor\n");
 }
 

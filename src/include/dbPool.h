@@ -1,5 +1,5 @@
 /*******************************************************************************
- File Name: gameObject.h
+ File Name: dbPool.h
  Descript:
  
  Version: 1.0
@@ -12,33 +12,14 @@
  Company: 
 *******************************************************************************/
 
-#ifndef OBJECT_H
-#define OBJECT_H
-#include "object.h"
-#endif
-
-#ifndef LIST_H
-#define LIST_H
-#include <list>
-#endif
-
 #ifndef COMMPONENT_H
 #define COMMPONENT_H
 #include "commponent.h"
 #endif
 
-using namespace std;
-
-/// <summary>
-/// gameObject
-/// </summary>
-class gameObject : public object {
+class dbPool : public commponent {
 	public:
-		gameObject();
-		virtual ~gameObject();
-		addCommponent();
-		getCommponent();
+		dbPool();
+		~dbPool();
 
-	private: 
-		list<commponent> commponentList;
 };

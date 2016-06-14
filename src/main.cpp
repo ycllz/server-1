@@ -12,18 +12,50 @@
  Company: 
 *******************************************************************************/
 
-#ifndef OBJECT_H
-#define OBJECT_H
-#include "include/object.h"
-#endif
+#include <cstdio>
 
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
-#include "include/gameObject.h"
-#endif
+using namespace std;
 
 int main(void) {
-	object* objPtr = new gameObject();
-	delete objPtr;
+
+	// testing short length
+	printf("testing short length\n");
+	short shortNum = 1;
+	int length = 1;
+	while(shortNum > 0) {
+		shortNum = shortNum << 1;
+		length++;
+	}
+	printf("length=%d\n", length);
+
+	// testing int length
+	int intNum = 1;
+	length = 1;
+	printf("testing int length\n");
+	while(intNum > 0) {
+		intNum = intNum << 1;
+		length++;
+	}
+	printf("length=%d\n", length);
+
+	// testing long length
+	long longNum = 1;
+	length = 1;
+	printf("testing long length\n");
+	while(longNum > 0) {
+		longNum = longNum << 1;
+		length++;
+	}
+	printf("length=%d\n", length);
+
+	// testing long long length
+	long long longlongNum = 1;
+	length = 1;
+	printf("testing long long length\n");
+	while(longlongNum > 0) {
+		longlongNum = longlongNum << 1;
+		length++;
+	}
+	printf("length=%d\n", length);
 	return 0;
 }

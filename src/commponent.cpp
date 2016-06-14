@@ -12,6 +12,11 @@
  Company: 
 *******************************************************************************/
 
+#ifndef COMMPONENT_H
+#define COMMPONENT_H
+#include "include/commponent.h"
+#endif
+
 #include <cstdio>
 
 /// <summary>
