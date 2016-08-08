@@ -13,13 +13,19 @@
 *******************************************************************************/
 
 #include <cstdio>
+#include <string>
 
 using namespace std;
 
+void display(const int* numPtr);
 int main(void) {
-	printf("short %d byte\n", sizeof(short));
-	printf("int %d byte\n", sizeof(int));
-	printf("long %d byte\n", sizeof(long));
-	printf("long long %d byte\n", sizeof(long long));
+	int num = 10;
+	display(&num);
+	printf("%d\n", num);
 	return 0;
+}
+
+void display(const int* numPtr)
+{
+	*numPtr = 11;
 }
