@@ -1,12 +1,7 @@
-VPATH = ./src:./include
-main:main.o threadpool.o
-	g++ -pthread -o $@ threadpool.o main.o
-
-main.o:main.cpp threadpool.h
-	g++ -std=c++11 -c main.cpp
-
-threadpool.o:threadpool.cpp threadpool.h
-	g++ -std=c++11 -c threadpool.cpp
-
+VPATH = src:include
+objects = main.o threadpool.o
+main:$(objects)
+$(objects):%.o:%.cpp
+	g++ -std=c++11 -c $< -o $@
 clean:
-	rm main.o threadpool.o main
+	-rm *.o main
