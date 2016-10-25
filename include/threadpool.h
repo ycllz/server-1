@@ -22,13 +22,13 @@
 using namespace std;
 
 class threadpool {
-	public :
-		threadpool();
-		threadpool(int max_thread);
-		~threadpool();
-	public :
-		int m_max_thread;
-		thread * m_thread_head;
+    public :
+	threadpool();
+	threadpool(int max_thread);
+	~threadpool();
+    public :
+	int m_max_thread;
+	thread * m_thread_head;
 };
 
 #endif
