@@ -19,6 +19,10 @@ import (
 	"testing"
 )
 
-func Test_DEBUG(t *testing.T) {
-	fmt.Println(DEBUG())
+func Test_Debug(t *testing.T) {
+	fmt.Println(Debug())
+}
+
+func Test_IpAndPort(t *testing.T) {
+	fmt.Println(IpAndPort())
 }

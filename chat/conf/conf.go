@@ -18,19 +18,33 @@ import (
 	"github.com/larspensjo/config"
 )
 
+const section = "DEFAULT"
+
 var debug bool
+
+var ipAndPort string
 
 func init() {
 	conf, err := config.ReadDefault("config.cfg")
 	if err != nil {
 		panic(err)
 	}
-	debug, err = conf.Bool("DEFAULT", "debug")
+
+	debug, err = conf.Bool(section, "debug")
+	if err != nil {
+		panic(err)
+	}
+
+	ipAndPort, err = conf.String(section, "ipAndPort")
 	if err != nil {
 		panic(err)
 	}
 }
 
-func DEBUG() bool {
+func Debug() bool {
 	return debug
+}
+
+func IpAndPort() string {
+	return ipAndPort
 }

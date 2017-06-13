@@ -14,9 +14,16 @@
  
 package main
 
-import "chat/conf"
-import "fmt"
+import (
+	"chat/conf"
+	_ "chat/protoc"
+	"fmt"
+)
+
 
 func main() {
-	fmt.Println(conf.DEBUG())
+	fmt.Println(conf.Debug())
+	for {
+
+	}
 }
