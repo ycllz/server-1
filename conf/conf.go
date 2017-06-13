@@ -15,7 +15,6 @@
 package conf
 
 import (
-	"fmt"
 	"github.com/larspensjo/config"
 )
 
@@ -24,11 +23,11 @@ var debug bool
 func init() {
 	conf, err := config.ReadDefault("config.cfg")
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 	debug, err = conf.Bool("DEFAULT", "debug")
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 }
 
