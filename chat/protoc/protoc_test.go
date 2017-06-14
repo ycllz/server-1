@@ -32,14 +32,18 @@ func Test_Protoc(t *testing.T) {
 
 	fmt.Println("listen...")
 
-	conn.Write([]byte{'h', 'e', 'l', 'l', 'o'})
+	for {
+		conn.Write([]byte{'h', 'e', 'l', 'l', 'o'})
 
-	data := make([]byte, 1024)
+		data := make([]byte, 1024)
 
-	index, err := conn.Read(data)
-	if err != nil {
-		fmt.Println(err)
+		index, err := conn.Read(data)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		fmt.Println(string(data[0:index]))
+
+		time.Sleep(time.Second * time.Duration(conf.TimeOutSec()))
 	}
-
-	fmt.Println(string(data[0:index]))
 }

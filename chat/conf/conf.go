@@ -24,6 +24,8 @@ var debug bool
 
 var ipAndPort string
 
+var timeOutSec int
+
 func init() {
 	conf, err := config.ReadDefault("config.cfg")
 	if err != nil {
@@ -39,6 +41,11 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+
+	timeOutSec, err = conf.Int(section, "timeOutSec")
+	if err != nil {
+		panic(err)
+	}
 }
 
 func Debug() bool {
@@ -47,4 +54,8 @@ func Debug() bool {
 
 func IpAndPort() string {
 	return ipAndPort
+}
+
+func TimeOutSec() int {
+	return timeOutSec
 }
