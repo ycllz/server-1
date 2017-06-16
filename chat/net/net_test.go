@@ -12,7 +12,7 @@
  * Company: 
  */ 
  
-package protoc
+package net
 
 import (
 	"chat/conf"
@@ -22,7 +22,7 @@ import (
 	"time"
 )
 
-func Test_Protoc(t *testing.T) {
+func Test_Net(t *testing.T) {
 	time.Sleep(time.Second)
 
 	conn, err := net.Dial("tcp", conf.IpAndPort())

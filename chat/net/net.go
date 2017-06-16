@@ -12,23 +12,21 @@
  * Company: 
  */ 
  
-package protoc
+package net
 
 import (
 	"bytes"
-	_ "chat/chat"
 	"chat/conf"
 	"encoding/binary"
 	"fmt"
-	"github.com/golang/protobuf/proto"
 	"net"
-	"reflect"
 	"time"
 )
 
+// tcp timeout second
 var timeOutSec time.Duration
 
-var mapFunc map[int32]func([]byte)
+var handleFunc = make(map[int]func([]byte))
 
 func init() {
 	timeOutSec = time.Second * time.Duration(conf.TimeOutSec())
@@ -67,29 +65,25 @@ func handle(conn net.Conn) {
 				continue
 			}
 		}
-		go process(msg[0:end])
+		go process(0, end, msg[0:end])
 	}
 }
 
-func process(msg []byte) {
-	start := 0
+func process(start, end int, msg []byte) {
+	for ;start < end; {
+		b_head := bytes.NewBuffer(msg[start:start+3])
 
-	len := len(msg)
-
-	for start < len {
-		b_head := bytes.NewBuffer(msg[start:start+3]
-
-		var head int32
+		head := 0
 
 		binary.Read(b_head, binary.BigEndian, &head)
 
 		b_protoId := bytes.NewBuffer(msg[start+4:start+7])
 
-		var protoId int32
+		protoId := 0
 
 		binary.Read(b_protoId, binary.BigEndian, &protoId)
 
-		if v, ok := mapFunc[protoId]; ok {
+		if v, ok :=handleFunc[protoId]; ok {
 			v(msg[start+8:head])
 		}
 

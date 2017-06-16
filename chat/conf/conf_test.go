@@ -26,3 +26,11 @@ func Test_Debug(t *testing.T) {
 func Test_IpAndPort(t *testing.T) {
 	fmt.Println(IpAndPort())
 }
+
+func Test_TimeOutSec(t *testing.T) {
+	fmt.Println(TimeOutSec())
+}
+
+func Test_CleanSpan(t *testing.T) {
+	fmt.Println(CleanSpan())
+}
