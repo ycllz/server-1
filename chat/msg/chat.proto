@@ -1,0 +1,8 @@
+syntax = "proto3";
+package chat;
+
+message chat
+{
+	int32 id = 1; //playerId
+	string content = 2; //chat content
+}

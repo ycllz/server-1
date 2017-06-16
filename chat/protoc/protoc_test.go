@@ -44,6 +44,6 @@ func Test_Protoc(t *testing.T) {
 
 		fmt.Println(string(data[0:index]))
 
-		time.Sleep(time.Second * time.Duration(conf.TimeOutSec()))
+		time.Sleep(time.Duration(20) * time.Second)
 	}
 }
